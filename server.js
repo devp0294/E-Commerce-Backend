@@ -22,7 +22,7 @@ const __dirname = path.resolve();
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173" || "https://e-commerce-frontend-one-lemon.vercel.app", // your frontend URL
+    origin: "https://e-commerce-frontend-one-lemon.vercel.app" || "http://localhost:5173", // your frontend URL
     credentials: true,
   })
 );
