@@ -26,6 +26,17 @@ app.use(
     credentials: true,
   })
 );
+// Debug middleware to log requests and credentials
+app.use((req, res, next) => {
+  console.log("=== Incoming Request ===");
+  console.log("Origin:", req.headers.origin);
+  console.log("Cookies:", req.headers.cookie); // shows all cookies sent
+  console.log("Authorization header:", req.headers.authorization); // if you were using Bearer token
+  console.log("Method:", req.method, "URL:", req.url);
+  console.log("=======================");
+  next();
+});
+
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
